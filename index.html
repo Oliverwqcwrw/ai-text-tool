@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI文字工坊 — 智能文本处理工具</title>
+  <title>Chinese AI Text Tools — Polish, Summarize &amp; Analyze</title>
+  <meta name="description" content="Free AI-powered tools for Chinese text: polishing, summarization, title generation and sentiment analysis." />
   <style>
     /* ===== 全局变量 & Reset ===== */
     :root {
@@ -27,7 +28,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      font-family: "Inter","Segoe UI","Helvetica Neue",sans-serif;
       background: var(--bg-primary);
       color: var(--text-primary);
       min-height: 100vh;
@@ -466,9 +467,9 @@
 <header>
   <div class="logo-wrap">
     <div class="logo-icon">✨</div>
-    <h1>AI文字工坊</h1>
+    <h1>Chinese AI Text Tools</h1>
   </div>
-  <p class="tagline">借助 <span>人工智能</span>，让每一个字都熠熠生辉 · 四大工具，一站搞定</p>
+  <p class="tagline">Polish, Summarize, Generate Titles &amp; Analyze Sentiment — powered by <span>AI</span></p>
 </header>
 
 <!-- ===== Main ===== -->
@@ -477,38 +478,38 @@
   <!-- Tab 导航 -->
   <nav class="tabs-nav" role="tablist">
     <button class="tab-btn active" data-tab="polish" onclick="switchTab('polish')">
-      <span class="tab-icon">✍️</span> 文本润色
+      <span class="tab-icon">✨</span> Polish
     </button>
     <button class="tab-btn" data-tab="summary" onclick="switchTab('summary')">
-      <span class="tab-icon">📝</span> 文章摘要
+      <span class="tab-icon">📝</span> Summarize
     </button>
     <button class="tab-btn" data-tab="title" onclick="switchTab('title')">
-      <span class="tab-icon">💡</span> 标题生成
+      <span class="tab-icon">🔥</span> Title Generator
     </button>
     <button class="tab-btn" data-tab="sentiment" onclick="switchTab('sentiment')">
-      <span class="tab-icon">🎭</span> 情感分析
+      <span class="tab-icon">💬</span> Sentiment
     </button>
   </nav>
 
   <!-- ===== 文本润色 ===== -->
   <div class="tool-panel active" id="panel-polish">
-    <p class="tool-desc">✍️ <strong>文本润色</strong> — 输入粗稿，AI 自动优化表达、修正语病，让文字更流畅专业。</p>
+    <p class="tool-desc">✨ <strong>Polish</strong> — Paste your draft and let AI refine the wording, fix errors, and make it fluent &amp; professional.</p>
     <div class="workspace">
       <div class="text-card">
-        <div class="card-label">📥 原始文本</div>
-        <textarea id="input-polish" placeholder="请粘贴或输入需要润色的文本…" oninput="updateCount('polish')"></textarea>
+        <div class="card-label">📥 Input</div>
+        <textarea id="input-polish" placeholder="Enter your Chinese text here..." oninput="updateCount('polish')"></textarea>
         <div class="char-count" id="count-polish">0 字</div>
       </div>
       <div class="action-col">
-        <button class="generate-btn" onclick="runTool('polish')">⚡ 开始润色</button>
-        <button class="clear-btn" onclick="clearTool('polish')">清空</button>
+        <button class="generate-btn" onclick="runTool('polish')">⚡ Generate</button>
+        <button class="clear-btn" onclick="clearTool('polish')">Clear</button>
       </div>
       <div class="text-card">
-        <div class="card-label">📤 润色结果</div>
+        <div class="card-label">📤 Result</div>
         <div class="output-area" id="output-polish">
-          <div class="loader" id="loader-polish"><div class="spinner"></div><div class="loader-text">AI 正在润色中…</div></div>
-          <span class="output-placeholder" id="placeholder-polish">润色后的文本将在此处显示</span>
-          <button class="copy-output-btn" onclick="copyOutput('polish')">复制</button>
+          <div class="loader" id="loader-polish"><div class="spinner"></div><div class="loader-text">AI is polishing…</div></div>
+          <span class="output-placeholder" id="placeholder-polish">Result will appear here...</span>
+          <button class="copy-output-btn" onclick="copyOutput('polish')">Copy</button>
         </div>
       </div>
     </div>
@@ -516,23 +517,23 @@
 
   <!-- ===== 文章摘要 ===== -->
   <div class="tool-panel" id="panel-summary">
-    <p class="tool-desc">📝 <strong>文章摘要</strong> — 长文一键压缩，AI 提取核心信息，生成简洁摘要。</p>
+    <p class="tool-desc">📝 <strong>Summarize</strong> — Compress long articles with one click; AI extracts key information and generates a concise summary.</p>
     <div class="workspace">
       <div class="text-card">
-        <div class="card-label">📥 原始文章</div>
-        <textarea id="input-summary" placeholder="请粘贴需要生成摘要的长文…" oninput="updateCount('summary')"></textarea>
+        <div class="card-label">📥 Input</div>
+        <textarea id="input-summary" placeholder="Enter your Chinese text here..." oninput="updateCount('summary')"></textarea>
         <div class="char-count" id="count-summary">0 字</div>
       </div>
       <div class="action-col">
-        <button class="generate-btn" onclick="runTool('summary')">⚡ 生成摘要</button>
-        <button class="clear-btn" onclick="clearTool('summary')">清空</button>
+        <button class="generate-btn" onclick="runTool('summary')">⚡ Generate</button>
+        <button class="clear-btn" onclick="clearTool('summary')">Clear</button>
       </div>
       <div class="text-card">
-        <div class="card-label">📤 摘要结果</div>
+        <div class="card-label">📤 Result</div>
         <div class="output-area" id="output-summary">
-          <div class="loader" id="loader-summary"><div class="spinner"></div><div class="loader-text">AI 正在总结中…</div></div>
-          <span class="output-placeholder" id="placeholder-summary">文章摘要将在此处显示</span>
-          <button class="copy-output-btn" onclick="copyOutput('summary')">复制</button>
+          <div class="loader" id="loader-summary"><div class="spinner"></div><div class="loader-text">AI is summarizing…</div></div>
+          <span class="output-placeholder" id="placeholder-summary">Result will appear here...</span>
+          <button class="copy-output-btn" onclick="copyOutput('summary')">Copy</button>
         </div>
       </div>
     </div>
@@ -540,23 +541,23 @@
 
   <!-- ===== 标题生成 ===== -->
   <div class="tool-panel" id="panel-title">
-    <p class="tool-desc">💡 <strong>标题生成</strong> — 输入文章内容或主题，AI 一键生成多条吸引眼球的标题。</p>
+    <p class="tool-desc">🔥 <strong>Title Generator</strong> — Enter your article content or topic; AI generates multiple eye-catching titles instantly.</p>
     <div class="workspace">
       <div class="text-card">
-        <div class="card-label">📥 文章内容 / 主题</div>
-        <textarea id="input-title" placeholder="请输入文章内容或主题关键词…" oninput="updateCount('title')"></textarea>
+        <div class="card-label">📥 Input</div>
+        <textarea id="input-title" placeholder="Enter your Chinese text here..." oninput="updateCount('title')"></textarea>
         <div class="char-count" id="count-title">0 字</div>
       </div>
       <div class="action-col">
-        <button class="generate-btn" onclick="runTool('title')">⚡ 生成标题</button>
-        <button class="clear-btn" onclick="clearTool('title')">清空</button>
+        <button class="generate-btn" onclick="runTool('title')">⚡ Generate</button>
+        <button class="clear-btn" onclick="clearTool('title')">Clear</button>
       </div>
       <div class="text-card">
-        <div class="card-label">📤 标题建议</div>
+        <div class="card-label">📤 Result</div>
         <div class="output-area" id="output-title">
-          <div class="loader" id="loader-title"><div class="spinner"></div><div class="loader-text">AI 正在创作中…</div></div>
-          <span class="output-placeholder" id="placeholder-title">AI 生成的标题将在此处显示</span>
-          <button class="copy-output-btn" onclick="copyOutput('title')">复制</button>
+          <div class="loader" id="loader-title"><div class="spinner"></div><div class="loader-text">AI is generating…</div></div>
+          <span class="output-placeholder" id="placeholder-title">Result will appear here...</span>
+          <button class="copy-output-btn" onclick="copyOutput('title')">Copy</button>
         </div>
       </div>
     </div>
@@ -564,23 +565,23 @@
 
   <!-- ===== 情感分析 ===== -->
   <div class="tool-panel" id="panel-sentiment">
-    <p class="tool-desc">🎭 <strong>情感分析</strong> — 分析文本的情感倾向，判断正面、负面或中性。</p>
+    <p class="tool-desc">💬 <strong>Sentiment</strong> — Analyze the emotional tone of text: positive, negative, or neutral.</p>
     <div class="workspace">
       <div class="text-card">
-        <div class="card-label">📥 待分析文本</div>
-        <textarea id="input-sentiment" placeholder="请输入需要分析情感的文本…" oninput="updateCount('sentiment')"></textarea>
+        <div class="card-label">📥 Input</div>
+        <textarea id="input-sentiment" placeholder="Enter your Chinese text here..." oninput="updateCount('sentiment')"></textarea>
         <div class="char-count" id="count-sentiment">0 字</div>
       </div>
       <div class="action-col">
-        <button class="generate-btn" onclick="runTool('sentiment')">⚡ 开始分析</button>
-        <button class="clear-btn" onclick="clearTool('sentiment')">清空</button>
+        <button class="generate-btn" onclick="runTool('sentiment')">⚡ Generate</button>
+        <button class="clear-btn" onclick="clearTool('sentiment')">Clear</button>
       </div>
       <div class="text-card">
-        <div class="card-label">📤 分析结果</div>
+        <div class="card-label">📤 Result</div>
         <div class="output-area" id="output-sentiment">
-          <div class="loader" id="loader-sentiment"><div class="spinner"></div><div class="loader-text">AI 正在分析中…</div></div>
-          <span class="output-placeholder" id="placeholder-sentiment">情感分析结果将在此处显示</span>
-          <button class="copy-output-btn" onclick="copyOutput('sentiment')">复制</button>
+          <div class="loader" id="loader-sentiment"><div class="spinner"></div><div class="loader-text">AI is analyzing…</div></div>
+          <span class="output-placeholder" id="placeholder-sentiment">Result will appear here...</span>
+          <button class="copy-output-btn" onclick="copyOutput('sentiment')">Copy</button>
         </div>
       </div>
     </div>
@@ -588,13 +589,13 @@
 
   <!-- ===== 打赏区域 ===== -->
   <section class="donate-section">
-    <div class="donate-title">觉得好用？请作者喝杯咖啡 ☕</div>
-    <div class="donate-sub">您的支持是持续开发的动力，感谢每一位慷慨的朋友！</div>
+    <div class="donate-title">If this tool saved you time, buy me a coffee ☕</div>
+    <div class="donate-sub">Every donation keeps this tool free &amp; running</div>
     <div class="donate-cards">
 
       <!-- ETH -->
       <div class="donate-card">
-        <div class="donate-badge badge-eth">ETH</div>
+        <div class="donate-badge badge-eth">ETH / ERC-20</div>
         <img
           class="donate-qr"
           src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=0x11e764fac3fcd4be16da43a252a62b156e06a632"
@@ -602,12 +603,12 @@
           loading="lazy"
         />
         <div class="donate-addr">0x11e764fac3fcd4be16da43a252a62b156e06a632</div>
-        <button class="copy-addr-btn" onclick="copyAddr('0x11e764fac3fcd4be16da43a252a62b156e06a632', this)">📋 复制地址</button>
+        <button class="copy-addr-btn" onclick="copyAddr('0x11e764fac3fcd4be16da43a252a62b156e06a632', this)">📋 Copy Address</button>
       </div>
 
       <!-- USDT TRC20 -->
       <div class="donate-card">
-        <div class="donate-badge badge-usdt">USDT (TRC20)</div>
+        <div class="donate-badge badge-usdt">USDT / TRC-20</div>
         <img
           class="donate-qr"
           src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TSvC67jexputnNHayVR8fpScwFmwvZV8jp"
@@ -615,7 +616,7 @@
           loading="lazy"
         />
         <div class="donate-addr">TSvC67jexputnNHayVR8fpScwFmwvZV8jp</div>
-        <button class="copy-addr-btn" onclick="copyAddr('TSvC67jexputnNHayVR8fpScwFmwvZV8jp', this)">📋 复制地址</button>
+        <button class="copy-addr-btn" onclick="copyAddr('TSvC67jexputnNHayVR8fpScwFmwvZV8jp', this)">📋 Copy Address</button>
       </div>
 
     </div>
@@ -625,7 +626,7 @@
 
 <!-- ===== Footer ===== -->
 <footer>
-  <p>© 2026 AI文字工坊 · Powered by <a href="https://chinese-text-api.onrender.com" target="_blank">Chinese Text API</a></p>
+  <p>Made with ❤️ + AI · Free forever · Powered by <a href="https://chinese-text-api.onrender.com" target="_blank">Chinese Text API</a></p>
 </footer>
 
 <!-- ===== Toast ===== -->
@@ -660,7 +661,7 @@ function switchTab(name) {
 /* ===== 字数统计 ===== */
 function updateCount(name) {
   const el = document.getElementById('input-' + name);
-  document.getElementById('count-' + name).textContent = el.value.length + ' 字';
+  document.getElementById('count-' + name).textContent = el.value.length + ' chars';
 }
 
 /* ===== 清空 ===== */
@@ -684,7 +685,7 @@ function resetOutput(name) {
 /* ===== 主调用函数 ===== */
 async function runTool(name) {
   const input = document.getElementById('input-' + name).value.trim();
-  if (!input) { showToast('⚠️ 请先输入文本内容'); return; }
+  if (!input) { showToast('⚠️ Please enter some text first'); return; }
 
   const loader = document.getElementById('loader-' + name);
   const ph     = document.getElementById('placeholder-' + name);
@@ -721,7 +722,7 @@ async function runTool(name) {
   } catch (err) {
     loader.classList.remove('show');
     ph.style.display = '';
-    ph.textContent = '❌ 请求失败：' + err.message + '，请稍后重试。';
+    ph.textContent = '❌ Request failed: ' + err.message + '. Please try again later.';
     ph.style.color = '#ff6b6b';
   } finally {
     btn.disabled = false;
@@ -764,13 +765,13 @@ function renderSentiment(container, data) {
     </div>
     ${score ? `
     <div>
-      <div style="font-size:12px;color:var(--text-muted);margin-bottom:5px">置信度 ${Math.round(score * 100)}%</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:5px">Confidence ${Math.round(score * 100)}%</div>
       <div class="sentiment-bar-wrap">
         <div class="sentiment-bar" style="width:0%;background:linear-gradient(90deg,${color},var(--accent))"></div>
       </div>
     </div>` : ''}
     ${detail ? `<div class="sentiment-detail">${detail}</div>` : ''}
-    <div class="sentiment-detail" style="font-size:12px;opacity:.6">原始数据：${JSON.stringify(data)}</div>
+    <div class="sentiment-detail" style="font-size:12px;opacity:.6">Raw data: ${JSON.stringify(data)}</div>
   `;
   container.insertBefore(div, container.querySelector('.copy-output-btn'));
 
@@ -786,17 +787,17 @@ function renderSentiment(container, data) {
 /* ===== 复制输出内容 ===== */
 function copyOutput(name) {
   const out = document.getElementById('output-' + name);
-  const text = out.innerText.replace('复制', '').trim();
-  navigator.clipboard.writeText(text).then(() => showToast('✅ 已复制到剪贴板'));
+  const text = out.innerText.replace('Copy', '').trim();
+  navigator.clipboard.writeText(text).then(() => showToast('✅ Copied to clipboard'));
 }
 
 /* ===== 复制打赏地址 ===== */
 function copyAddr(addr, btn) {
   navigator.clipboard.writeText(addr).then(() => {
     const orig = btn.textContent;
-    btn.textContent = '✅ 已复制！';
+    btn.textContent = '✅ Copied!';
     setTimeout(() => btn.textContent = orig, 2000);
-    showToast('✅ 地址已复制');
+    showToast('✅ Address copied');
   });
 }
 
